@@ -4,6 +4,8 @@ import { RenderBuilderContent } from "../components/builder";
 // Builder Public API Key set in .env file
 builder.init(process.env.BUILDER_API_KEY!);
 
+export const runtime = 'edge';
+
 export default async function Page() {
   const builderModelName = "page";
 
