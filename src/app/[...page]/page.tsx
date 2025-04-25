@@ -1,5 +1,5 @@
 import { builder } from "@builder.io/sdk";
-import { RenderBuilderContent } from "../components/builder";
+import { RenderBuilderContent } from "../../components/builder";
 
 // Builder Public API Key set in .env file
 builder.init(process.env.BUILDER_API_KEY!);
@@ -18,7 +18,7 @@ export default async function Page(props: PageProps) {
     .get(builderModelName, {
       userAttributes: {
         // Use the page path specified in the URL to fetch the content
-        urlPath: "/",
+        urlPath: "/" + ((await props?.params)?.page?.join("/") || ""),
       },
     })
     // Convert the result to a promise
